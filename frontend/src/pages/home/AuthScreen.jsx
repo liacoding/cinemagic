@@ -152,22 +152,41 @@ const AuthScreen = () => {
 
 			{/* 5 section */}
 
-					<div className="relative min-h-screen text-white">
+					{/* <div className="relative min-h-screen text-white"> */}
 
 			{/* Background Image */}
-			<div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/movie_exp.png')" }}></div>
+			{/* <div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/movie_exp.png')" }}></div> */}
 
 			{/* Content Container */}
-				<div className="absolute top-[20%] left-[15%] max-w-6xl space-y-6">
+				{/* <div className="absolute top-[20%] left-[15%] max-w-6xl space-y-6">
 				<div className="text-5sm font-semibold tracking-wide uppercase"> Subscribe today and ...</div>
 				<h1 className="text-5xl font-bold">Get a Movie Theatre Experience!</h1>
 				<p className="text-lg">
 				All Your Favorites, All in One Place! Stream New Releases, Timeless Classics, and Top TV Shows. Anytime!
 				</p>
 			</div>
+			</div> */}
+
+			{/* 5 section ends*/}
+
+					<div className="relative min-h-screen text-white">
+			{/* Background Image */}
+			<div className="absolute inset-0 bg-cover bg-center opacity-100" style={{ backgroundImage: "url('/movie_exp.png')" }}></div>
+
+			{/* Content Container */}
+			<div className="absolute top-[20%] left-[5%] md:left-[15%] max-w-6xl space-y-4 px-4 md:px-0">
+				<div className="text-xs md:text-sm font-semibold tracking-wide uppercase">
+				Subscribe today and ...
+				</div>
+				<h1 className="text-3xl md:text-5xl font-bold">
+				Get a Movie Theatre Experience!
+				</h1>
+				<p className="text-sm md:text-lg">
+				All Your Favorites, All in One Place! Stream New Releases, Timeless Classics, and Top TV Shows. Anytime!
+				</p>
+			</div>
 			</div>
 
-			{/*4 section ends*/}
 
 			
 
