@@ -35,9 +35,7 @@ export async function signup (req, res){
        const salt =  await bcryptjs.genSalt(10);
        const hashedPassword =  await bcryptjs.hash(password, salt);
 
-       const PROFILE_PICS = ["/avatar1.png", "/avatar2.png", "/avatar3.png"];
-
-       const image =  PROFILE_PICS[Math.floor(Math.random() * PROFILE_PICS.length)];
+       const image =  "/avatar.png";
 
        const newUser = new User({
         email:email,
@@ -105,7 +103,7 @@ export async function login(req, res) {
 
 export async function logout(req, res) {
     try{
-        res.clearCookie("token");
+        res.clearCookie("jwt-token");
         res.status(200).json({success:true, message: "Logged out successfully"});
     }catch (error) {
         console.log("Error in logout controller", error.message);
@@ -113,6 +111,14 @@ export async function logout(req, res) {
     }
 };
 
+export async function authCheck(req, res) {
+    try {
+        res.status(200).json({success:true, user: req.user});
+    } catch (error) {
+        console.log("Error in authCheck controller", error.message);
+        res.status(500).json({success:false, message: "Internal server error"});
+    }
+};
 
 
 
