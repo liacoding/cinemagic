@@ -179,7 +179,7 @@ const AuthScreen = () => {
 				Subscribe today and ...
 				</div>
 				<h1 className="text-3xl md:text-5xl font-bold">
-				Get a Movie Theatre Experience!
+				Get a Movie Theater Experience!
 				</h1>
 				<p className="text-sm md:text-lg">
 				All Your Favorites, All in One Place! Stream New Releases, Timeless Classics, and Top TV Shows. Anytime!
