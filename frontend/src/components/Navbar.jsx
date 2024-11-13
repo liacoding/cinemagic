@@ -30,6 +30,9 @@ const Navbar = () => {
 					<Link to='/history' className='hover:underline'>
 						Search History
 					</Link>
+					<Link to='/recommendations' className='hover:underline'>
+						AI Assistant
+					</Link>
 				</div>
 			</div>
 
@@ -55,6 +58,9 @@ const Navbar = () => {
 					</Link>
 					<Link to={"/history"} className='block hover:underline p-2' onClick={toggleMobileMenu}>
 						Search History
+					</Link>
+					<Link to='/recommendations' className='block hover:underline p-2' onClick={toggleMobileMenu}>
+						AI Assistant
 					</Link>
 				</div>
 			)}

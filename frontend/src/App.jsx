@@ -4,6 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import WatchPage from "./pages/WatchPage";
 import Footer from "./components/Footer";
+import MovieRecommendations from "./pages/MovieRecommendations";
 import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authUser";
 import { useEffect } from "react";
@@ -39,6 +40,7 @@ function App() {
 				<Route path='/search' element={user ? <SearchPage /> : <Navigate to={"/login"} />} />
 				<Route path='/history' element={user ? <SearchHistoryPage /> : <Navigate to={"/login"} />} />
 				<Route path='/*' element={<NotFoundPage />} />
+				<Route path="/recommendations" element={user ?<MovieRecommendations /> : <Navigate to={"/login"} />} />
 			</Routes>
 			<Footer />
 
