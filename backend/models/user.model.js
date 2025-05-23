@@ -17,7 +17,7 @@ const userSchema = mongoose.Schema({
     },
     image:{
         type:  String,
-        default:""
+        default:"/avatar.png"
     },
     searchHistory:{
         type: Array,
