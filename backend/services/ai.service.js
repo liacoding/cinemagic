@@ -2,43 +2,37 @@ import axios from "axios";
 import { ENV_VARS } from "../config/envVars.js";
 
 export const fetchMoviesfromAI = async (prompt) => {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${ENV_VARS.CHAT_API_KEY}`;
 
-    const url = "https://api.x.ai/v1/chat/completions";
-
-    const body = {
-        "model": "grok-beta",  
-        "messages": [
-            {
-                "role": "system",
-                "content": "Always respond with exactly 5 movie titles separated by commas, without any description or extra text."
-            },
+  const body = {
+    contents: [
+      {
+        parts: [
           {
-            "role": "user",
-            "content": prompt,
-          }
+            text: `Always respond with exactly 5 movie titles separated by commas, without any description or extra text.\n\n${prompt}`,
+          },
         ],
-        "max_tokens": 150,
-        "temperature": 0.7,
-        "n": 1
-      };
+      },
+    ],
+  };
 
-    const options = {
-        headers: {
-          "Authorization": 'Bearer ' + ENV_VARS.CHAT_API_KEY,
-          "Content-Type": 'application/json',
-        },
-      };
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
-      const response = await axios.post(url, body, options);
+  const response = await axios.post(url, body, options);
 
-      if(response.status !== 200){
-          throw new Error('Failed to fetch data from XAI' + response.statusText);
-      }
+  if (response.status !== 200) {
+    throw new Error("Failed to fetch data from Gemini: " + response.statusText);
+  }
 
-     const moviesListGeneratedByChat = response.data.choices[0].message.content;
+  const geminiText = response.data.candidates?.[0]?.content?.parts?.[0]?.text;
 
-     const moviesTitles = moviesListGeneratedByChat.split(',').map(title => title.replace(/^\d+\.\s*/, '').trim());
+  const moviesTitles = geminiText
+    ?.split(",")
+    .map((title) => title.replace(/^\d+\.\s*/, "").trim());
 
-     return moviesTitles;
-
+  return moviesTitles;
 };
